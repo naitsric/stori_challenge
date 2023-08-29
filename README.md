@@ -99,10 +99,6 @@ chalice deploy
 - [Chalice Documentation](https://chalice.readthedocs.io/en/latest/)
 - [AWS CLI Documentation](https://aws.amazon.com/documentation/cli/)
 
-## Contributions
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License.
