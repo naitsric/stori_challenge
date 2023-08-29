@@ -1,3 +1,5 @@
+import os
+
 from chalice import Chalice
 
 from chalicelib.challenge import Challenge
@@ -7,7 +9,7 @@ from chalicelib.utils import get_df_from_s3
 app = Chalice(app_name='stori')
 
 
-@app.on_s3_event(bucket='cd-stori',
+@app.on_s3_event(bucket=os.getenv('BUCKET'),
                  events=['s3:ObjectCreated:*'])
 def handle_s3_event(event):
 

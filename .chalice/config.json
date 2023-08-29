@@ -5,7 +5,8 @@
     "SMTP_SERVER": "smtp.gmail.com",
     "SMTP_PORT": "587",
     "SMTP_USER": "*****",
-    "SMTP_PASSWORD": "*****"
+    "SMTP_PASSWORD": "*****",
+    "BUCKET": "cd-stori"
   },
   "stages": {
     "dev": {
