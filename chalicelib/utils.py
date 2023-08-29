@@ -1,3 +1,6 @@
+from email import encoders
+from email.mime.base import MIMEBase
+
 import boto3
 import pandas as pd
 from pandas import DataFrame
@@ -23,12 +26,22 @@ def get_df_from_s3(bucket: str, key: str) -> DataFrame | TextFileReader:
     return get_df(_bytes)
 
 
-def send_email(subject, body, to, smtp_server, smtp_port, smtp_user, smtp_password):
+def send_email(
+        subject: str, body: str, to: str, smtp_server: str,
+        smtp_port: int, smtp_user: str, smtp_password: str,
+        csv_bytes: bytes = None):
     msg = MIMEMultipart()
 
     msg['From'] = smtp_user
     msg['To'] = to
     msg['Subject'] = subject
+
+    if csv_bytes:
+        part = MIMEBase('application', 'octet-stream')
+        part.set_payload(csv_bytes)
+        encoders.encode_base64(part)
+        part.add_header('Content-Disposition', 'attachment; filename="file.csv"')
+        msg.attach(part)
 
     msg.attach(MIMEText(body, 'html'))
     server = smtplib.SMTP(smtp_server, smtp_port)

@@ -8,7 +8,7 @@ from chalicelib.utils import send_email
 
 class ChallengeEmail:
     @staticmethod
-    def send_email(challenge: Challenge):
+    def send_email(challenge: Challenge, csv_bytes: bytes):
         env = Environment(loader=FileSystemLoader('chalicelib/templates/'))
         template = env.get_template('challenge_email_template.html')
         html = template.render(
@@ -22,7 +22,8 @@ class ChallengeEmail:
         send_email(
             subject="Prueba", body=html, to="anticris9303@gmail.com",
             smtp_server=os.getenv('SMTP_SERVER'),
-            smtp_port=os.getenv('SMTP_PORT'),
+            smtp_port=int(os.getenv('SMTP_PORT')),
             smtp_user=os.getenv('SMTP_USER'),
-            smtp_password=os.getenv('SMTP_PASSWORD')
+            smtp_password=os.getenv('SMTP_PASSWORD'),
+            csv_bytes=csv_bytes
         )
