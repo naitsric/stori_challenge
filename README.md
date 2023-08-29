@@ -43,19 +43,18 @@ An example of what the file could look like is as follows:
 ```json
 {
   "version": "2.0",
-  "app_name": "MyChaliceAWSProject",
+  "app_name": "stori",
+  "environment_variables": {
+    "SMTP_SERVER": "your_smtp_server",
+    "SMTP_PORT": "your_smtp_port",
+    "SMTP_USER": "your_smtp_user",
+    "SMTP_PASSWORD": "your_smtp_password",
+    "BUCKET": "your_s3_bucket_name"
+  },
   "stages": {
     "dev": {
       "api_gateway_stage": "api",
-      "manage_iam_role": false,
-      "iam_role_arn": "arn:aws:iam::YOUR_ACCOUNT_ID:role/YOUR_ROLE",
-      "environment_variables": {
-        "SMTP_SERVER": "your_smtp_server",
-        "SMTP_PORT": "your_smtp_port",
-        "SMTP_USER": "your_smtp_user",
-        "SMTP_PASSWORD": "your_smtp_password",
-        "BUCKET": "your_s3_bucket_name"
-      }
+      "manage_iam_role": false
     }
   }
 }
