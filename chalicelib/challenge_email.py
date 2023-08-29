@@ -20,7 +20,7 @@ class ChallengeEmail:
         )
 
         send_email(
-            subject="Prueba", body=html, to="anticris9303@gmail.com",
+            subject=os.getenv('EMAIL_SUBJECT'), body=html, to=os.getenv('EMAIL_TO'),
             smtp_server=os.getenv('SMTP_SERVER'),
             smtp_port=int(os.getenv('SMTP_PORT')),
             smtp_user=os.getenv('SMTP_USER'),

@@ -6,7 +6,9 @@
     "SMTP_PORT": "587",
     "SMTP_USER": "*****",
     "SMTP_PASSWORD": "*****",
-    "BUCKET": "cd-stori"
+    "BUCKET": "cd-stori",
+    "EMAIL_SUBJECT": "Prueba",
+    "EMAIL_TO": "dev.cristian.duque@gmail.com"
   },
   "stages": {
     "dev": {

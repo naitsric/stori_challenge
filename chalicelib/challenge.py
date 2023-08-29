@@ -19,7 +19,6 @@ class Challenge:
         debits = self._df[self._df["Tansaction"] >= 0]
         return debits["Tansaction"].mean()
 
-
     def average_debit_amount(self):
         debits = self._df[self._df["Tansaction"] < 0]
         return debits["Tansaction"].mean()
