@@ -1,4 +1,4 @@
-# MyChaliceAWSProject
+# Stori Challenge
 
 ## Description
 
